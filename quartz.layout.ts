@@ -8,8 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "X": "https://twitter.com/aditeyananda",
+      "Email": "mailto:aditeyananda@gmail.com"
     },
   }),
 }
@@ -34,14 +34,28 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      title: "", // Remove title text
+      folderDefaultState: "collapsed", // Keep folders collapsed by default on reload
+      useSavedState: true, // Don't persist collapse state
+      sortFn: (a, b) => {
+        const order = ["Explainers", "Designing Systems", "About"];
+        const aIndex = order.findIndex(x => a.displayName.includes(x));
+        const bIndex = order.findIndex(x => b.displayName.includes(x));
+
+        if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+        if (aIndex !== -1) return -1;
+        if (bIndex !== -1) return 1;
+
+        return a.displayName.localeCompare(b.displayName);
+      },
+    }),
   ],
   right: [
-    Component.Graph(),
+    Component.Darkmode(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -59,10 +73,25 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      title: "", // Remove title text
+      folderDefaultState: "collapsed", // Keep folders collapsed by default on reload
+      useSavedState: true, // Don't persist collapse state
+      sortFn: (a, b) => {
+        const order = ["Explainers", "Designing Systems", "About"];
+        const aIndex = order.findIndex(x => a.displayName.includes(x));
+        const bIndex = order.findIndex(x => b.displayName.includes(x));
+
+        if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+        if (aIndex !== -1) return -1;
+        return a.displayName.localeCompare(b.displayName);
+      },
+    }),
   ],
-  right: [],
+  right: [
+    Component.Darkmode(),
+  ],
 }

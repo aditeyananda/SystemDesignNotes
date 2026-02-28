@@ -97,6 +97,12 @@ export default (() => {
             return resource
           }
         })}
+        <script type="module" dangerouslySetInnerHTML={{
+          __html: `
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+          `
+        }}></script>
       </head>
     )
   }

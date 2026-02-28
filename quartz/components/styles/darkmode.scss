@@ -15,7 +15,7 @@
     width: 20px;
     height: 20px;
     top: calc(50% - 10px);
-    fill: var(--darkgray);
+    stroke: var(--darkgray);
     transition: opacity 0.1s ease;
   }
 }
@@ -29,19 +29,21 @@
 }
 
 :root[saved-theme="dark"] .darkmode {
-  & > .dayIcon {
+  &>.dayIcon {
     display: none;
   }
-  & > .nightIcon {
+
+  &>.nightIcon {
     display: inline;
   }
 }
 
 :root .darkmode {
-  & > .dayIcon {
+  &>.dayIcon {
     display: inline;
   }
-  & > .nightIcon {
+
+  &>.nightIcon {
     display: none;
   }
 }
