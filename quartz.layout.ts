@@ -9,6 +9,7 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       "X": "https://twitter.com/aditeyananda",
+      "LinkedIn": "https://www.linkedin.com/in/aditeya-nanda/",
       "Email": "mailto:aditeyananda@gmail.com"
     },
   }),
@@ -21,9 +22,18 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
-    Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.ArticleTitle(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.ContentMeta(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.TagList(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
   ],
   left: [
     Component.PageTitle(),
@@ -43,7 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
       folderDefaultState: "collapsed", // Keep folders collapsed by default on reload
       useSavedState: true, // Don't persist collapse state
       sortFn: (a, b) => {
-        const order = ["Explainers", "Designing Systems", "About"];
+        const order = ["Explainers", "System Design", "About"];
         const aIndex = order.findIndex(x => a.displayName.includes(x));
         const bIndex = order.findIndex(x => b.displayName.includes(x));
 
@@ -82,7 +92,7 @@ export const defaultListPageLayout: PageLayout = {
       folderDefaultState: "collapsed", // Keep folders collapsed by default on reload
       useSavedState: true, // Don't persist collapse state
       sortFn: (a, b) => {
-        const order = ["Explainers", "Designing Systems", "About"];
+        const order = ["Explainers", "System Design", "About"];
         const aIndex = order.findIndex(x => a.displayName.includes(x));
         const bIndex = order.findIndex(x => b.displayName.includes(x));
 

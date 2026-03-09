@@ -2,9 +2,12 @@
 title: Aditeya Nanda
 ---
 
-Hello! I'm Aditeya.
+<div class="profile-container">
+  <img src="/assets/profile.png" alt="Aditeya Nanda" class="profile-img" />
+  <span>Hello! I'm Adi.</span>
+</div>
 
-Welcome to my digital space. This is where I share my essays, [Explainers](/Explainers/), and deep-dives into [Designing Systems](/Designing-Systems/). 
+Welcome to my digital space. This is where I share my essays, [Explainers](/Explainers/), and deep-dives into [System Design](/System-Design/). 
 
 Feel free to read more [About](/about) me, or subscribe to my newsletter below to get my latest essays directly in your inbox.
 

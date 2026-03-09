@@ -6,22 +6,18 @@
 
 article {
 
-  /* Style standard links with a thick highlight */
+  /* Perplexity-style minimal links */
   a.internal,
   a.external {
     text-decoration: none;
-    background: linear-gradient(to right, var(--textHighlight) 50%, transparent 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    transition: background-position 0.2s ease;
-    border-bottom: 2px solid var(--textHighlight);
-    /* Fallback/subtle baseline */
     color: var(--dark);
     font-weight: 500;
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+    border-bottom: 1px solid transparent;
+    /* Prevents layout shift on hover if we want an underline later */
 
     &:hover {
-      background-position: 0 0;
-      color: var(--dark); // In Thorsten's site, text stays dark on hover
+      color: var(--textHighlight); // Turn yellow on hover
     }
   }
 
@@ -54,4 +50,55 @@ article {
 /* Hide the explorer title button entirely */
 .explorer .title-button {
   display: none !important;
+}
+
+/* Base Image Styling (Perplexity Vibe) */
+article img {
+  border-radius: 8px;
+  /* Smooth rounded corners */
+  border: 1px solid var(--lightgray);
+  /* Subtle border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  /* Very slight depth */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    /* Lift up slightly on hover */
+    transform: translateY(-1px);
+  }
+}
+
+/* Style the active item in the explorer sidebar */
+.explorer ul li>a.internal[data-active="true"] {
+  color: var(--textHighlight);
+  font-weight: 600;
+}
+
+/* Home Page Profile Picture */
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.profile-container span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.profile-img {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  /* Force circle */
+  object-fit: cover !important;
+  border: 3px solid var(--lightgray);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* Override default image shadow with a slightly stronger one */
+  margin: 0 !important;
+  /* Overrides default quartz margins */
 }
