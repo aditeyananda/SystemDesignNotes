@@ -34,6 +34,7 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
+        { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
       ],
     }),
@@ -55,7 +56,6 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
-    Component.Darkmode(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -73,6 +73,7 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
+        { Component: Component.Darkmode() },
         { Component: Component.ReaderMode() },
       ],
     }),
@@ -91,7 +92,5 @@ export const defaultListPageLayout: PageLayout = {
       },
     }),
   ],
-  right: [
-    Component.Darkmode(),
-  ],
+  right: [],
 }
